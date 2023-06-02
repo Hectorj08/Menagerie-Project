@@ -1,0 +1,12 @@
+import mysql.connector as mc
+
+conn = mc.connect(host='localhost',user='root',password='')
+c = conn.cursor()
+c.execute("SHOW DATABASES")
+databases = c.fetchall()
+  for database in databases:
+    print(databases[0])
+  
+
+c.close()
+conn.close()

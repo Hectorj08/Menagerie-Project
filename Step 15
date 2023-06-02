@@ -1,0 +1,13 @@
+import mysql.connector as mc
+
+conn = mc.connect(host='localhost',user='root',password='', database='menagerie')
+c = conn.cursor()
+select_query = "Select * FROM pet"
+c.execute(select_query)
+rows = c.fetchall()
+
+for row in rows:
+    print(row)
+
+c.close()
+conn.close()

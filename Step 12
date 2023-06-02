@@ -1,0 +1,12 @@
+import mysql.connector as mc
+
+conn = mc.connect(host='localhost',user='root',password='', database='menagerie')
+c = conn.cursor()
+c.execute("DESCRIBE pet")
+table = c.fetchall()
+
+for column in table:
+    print(column[0], column[1], column[2], column[3], column[4])
+
+c.close()
+conn.close()

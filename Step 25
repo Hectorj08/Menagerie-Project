@@ -1,0 +1,14 @@
+import mysql.connector as mc
+
+conn = mc.connect(host='localhost',user='root',password='hectorjr123-', database='menagerie')
+c = conn.cursor()
+select_query = "SELECT name, birth, MONTH(birth) FROM pet;"
+c.execute(select_query)
+rows = c.fetchall()
+
+for row in rows:
+    name, birth, month = row
+    print(f"{name}, {birth}, {month}")
+
+c.close()
+conn.close()
